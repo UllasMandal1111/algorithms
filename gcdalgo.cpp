@@ -7,7 +7,7 @@ long long int gcdrecursive(long long int a, long long int b,long int n)
     long long int a1;
     if (b==0)
     {
-        cout<<n<<" recursive steps" <<endl;
+       // cout<<n<<" recursive steps" <<endl;
         return a;
     }
     else
@@ -16,7 +16,6 @@ long long int gcdrecursive(long long int a, long long int b,long int n)
         a1=a%b;
         gcdrecursive(b,a1,n);
     }
-    
 }
 int main()
 {

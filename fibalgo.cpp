@@ -17,6 +17,6 @@ int main()
     {
         cout<<fib[i]<<' ';
     }
-    // cout<<fib[n-1];
+    // cout<<fib[n];
     return 0;
 }
