@@ -1,5 +1,2 @@
-for(int j=0; j<=n; j++)
-    {
-        std::cout<<fibarr[j]<<' ';
-    }
-    std::cout<<'\n';
+ c=10;
+    // cout<<c;
