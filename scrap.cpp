@@ -1,21 +1,55 @@
 #include <iostream>
-#include <iomanip>
+#include <vector>
 using namespace std;
 
-void change(float d, int i, int j)
-{
-    cout<<fixed<<setprecision(6);
-    d=124;
-    cout<<d<<'\n';
-    float k=(float)j/i;
-    cout<<k<<endl;
+int compute_min_refills(int dist, int tank, vector<int> &stops){
+    stops.push_back(dist);
+    int lastStop = 0;
+    int numberStop = 0;
+    int x = 0;
+
+    for (int i = 0; i < stops.size() - 1; i++)
+    {
+
+        if (stops[i] - lastStop <= tank)
+        {
+            x = stops[i];
+            if (stops[i + 1] - lastStop > tank)
+            {
+                numberStop++;
+                lastStop = x;
+            }
+        }
+        if (tank < stops[i] - lastStop)
+        {
+            //cout << "uzak" << endl;
+            return -1;
+        }
+
+        //cout << "x :: " << x << "  last stop ::  " << lastStop << " number stop :: " << numberStop << endl;
+    }
+    if (dist > lastStop + tank)
+    {
+        return -1;
+    }
+
+    return numberStop;
 }
-//cout<<fixed<<setprecision(4);
+
 int main()
 {
-    cout<<fixed<<setprecision(6);
-    float d=0.0;
-    int i=9, j=82965;
-    change(d,i,j);
-    cout<<d;
+    int d = 0;
+    cin >> d;
+    int m = 0;
+    cin >> m;
+    int n = 0;
+    cin >> n;
+
+    vector<int> stops(n);
+    for (size_t i = 0; i < n; ++i)
+        cin >> stops.at(i);
+
+    cout << compute_min_refills(d, m, stops) << "\n";
+
+    return 0;
 }
