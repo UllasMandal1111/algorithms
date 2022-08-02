@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-int fibrec(int n)
+long long fibrec(int n)
     {
         if(n-1<=1)
         return n-1;
